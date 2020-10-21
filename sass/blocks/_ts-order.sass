@@ -1,0 +1,645 @@
+@import '../helpers/settings'
+@import '../helpers/mixins'
+
+////////////////////////////////////////
+// $Order
+////////////////////////////////////////
+
+//////////////////////////////////////// Block variables
+
+
+//////////////////////////////////////// Block mixins and functions
+
+
+//////////////////////////////////////// Block styles
+$block: ".ts-order"
+
+#{$block}
+  display: block
+  width: 100%
+
+  // $Order MOD: role basket
+  &_role_basket
+
+  // $Order MOD: role options
+  &_role_options
+
+  // $Order MOD: role editor
+  &_role_editor
+
+  // $Order MOD: role details
+  &_role_details
+
+
+  // $Order title
+  &__title
+    display: block
+    width: 100%
+    font-family: $f-sans
+    font-size: 18px
+    line-height: 1
+    font-weight: 600
+    color: $c-gray-extra-dark
+
+    &:not(:last-child)
+      margin-bottom: 20px
+
+
+  // $Order form
+  &__form
+    display: block
+    width: 100%
+
+
+  // $Order list
+  &__list
+    display: block
+    width: 100%
+
+    &:not(:last-child)
+      padding-bottom: 30px
+      margin-bottom: 30px
+      border-bottom: 1px solid $c-gray-light
+
+      #{$block}_role_basket &,
+      #{$block}_role_editor &
+        padding-bottom: 40px
+        margin-bottom: 40px
+
+      +media-max-s-minor
+        padding-bottom: 30px
+        margin-bottom: 30px
+
+        #{$block}_role_basket &,
+        #{$block}_role_editor &
+          padding-bottom: 30px
+          margin-bottom: 30px
+
+
+  // $Order item
+  &__item
+    display: flex
+    flex-direction: row
+    justify-content: flex-start
+    align-items: flex-start
+    width: 100%
+
+    &:not(:last-child)
+      margin-bottom: 30px
+
+      #{$block}_role_basket &,
+      #{$block}_role_editor &
+        margin-bottom: 40px
+
+      +media-max-s-minor
+        margin-bottom: 30px
+
+        #{$block}_role_basket &,
+        #{$block}_role_editor &
+          margin-bottom: 30px
+
+
+  // $Basket item quantity
+  &__item-quantity
+    flex-grow: 0
+    flex-shrink: 0
+    display: flex
+    flex-direction: row
+    justify-content: center
+    align-items: center
+
+    #{$block}_role_basket &,
+    #{$block}_role_editor &
+      width: 100px
+
+    #{$block}_role_options &
+      width: 140px
+      margin: 0 auto
+
+    +media-max-s-minor
+      #{$block}_role_basket &,
+      #{$block}_role_editor &
+        width: 70px
+
+    +media-max-xs
+      #{$block}_role_basket &,
+      #{$block}_role_editor &
+        flex-direction: column-reverse
+        width: 20px
+
+
+  // $Basket item quantity label
+  &__item-quantity-label
+    flex-grow: 0
+    flex-shrink: 0
+    display: block
+    width: 50px
+    font-family: $f-sans
+    font-size: 16px
+    line-height: 1
+    font-weight: 400
+    text-align: right
+    color: $c-gray-ultra-dark
+    white-space: nowrap
+
+    +media-max-s-minor
+      #{$block}_role_details &
+        font-size: 14px
+
+    &:after
+      content: 'x'
+      display: inline-block
+      margin-left: 10px
+
+
+  // $Basket item quantity action
+  &__item-quantity-action
+    flex-grow: 0
+    flex-shrink: 0
+    display: block
+    width: 30px
+    height: 30px
+    border: none
+    border-radius: 4px
+    background-color: $c-gray-extra-light
+    font-family: $f-sans
+    font-size: 22px
+    line-height: 30px
+    font-weight: 600
+    color: $c-gray-extra-dark
+    cursor: pointer
+    transition: .3s
+
+    #{$block}_role_options &
+      width: 40px
+      height: 40px
+      font-size: 25px
+      line-height: 40px
+
+    +media-max-s-minor
+      #{$block}_role_basket &,
+      #{$block}_role_editor &
+        width: 20px
+        height: 20px
+        font-size: 20px
+        line-height: 20px
+
+    &:hover
+      border-color: $c-brand
+      background-color: $c-brand
+      color: $c-white
+
+    &:focus
+      outline: none
+
+    &:disabled
+      cursor: not-allowed
+
+      &:hover
+        background-color: $c-gray-extra-light
+        color: $c-gray-extra-dark
+
+
+  // $Basket item quantity value
+  &__item-quantity-value
+    flex-grow: 0
+    flex-shrink: 0
+    display: block
+    width: 40px
+    height: 30px
+    font-family: $f-sans
+    font-size: 16px
+    line-height: 30px
+    font-weight: 400
+    text-align: center
+    color: $c-gray-extra-dark
+    transition: .3s
+
+    #{$block}_role_options &
+      width: 60px
+      height: 40px
+      font-size: 18px
+      line-height: 40px
+
+    +media-max-s-minor
+      #{$block}_role_basket &,
+      #{$block}_role_editor &
+        width: 30px
+        height: 20px
+        font-size: 14px
+        line-height: 20px
+
+    +media-max-xs
+      #{$block}_role_basket &,
+      #{$block}_role_editor &
+        width: 20px
+        height: 30px
+        line-height: 30px
+
+
+  // $Order item info
+  &__item-info
+    flex-grow: 1
+    flex-shrink: 1
+    display: block
+    width: 100%
+
+    #{$block}_role_basket &,
+    #{$block}_role_editor &
+      width: calc(100% - 100px)
+      padding-top: 8px
+      padding-left: 20px
+
+    #{$block}_role_details &
+      width: calc(100% - 50px)
+      padding-left: 10px
+
+    +media-max-s-minor
+      #{$block}_role_basket &,
+      #{$block}_role_editor &
+        width: calc(100% - 70px)
+        padding-top: 4px
+        padding-left: 15px
+
+    +media-max-xs
+      #{$block}_role_basket &,
+      #{$block}_role_editor &
+        width: calc(100% - 20px)
+
+
+  // $Order item group
+  &__item-group
+    display: flex
+    flex-direction: row
+    justify-content: flex-start
+    align-items: flex-start
+    width: 100%
+
+
+  // $Order item title
+  &__item-title
+    flex-grow: 1
+    flex-shrink: 1
+    display: block
+    width: 100%
+    padding-right: 20px
+    font-family: $f-sans
+    font-size: 16px
+    line-height: 1
+    font-weight: 600
+    color: $c-gray-ultra-dark
+
+    +media-max-s-minor
+      padding-right: 10px
+      font-size: 14px
+
+
+  // $Order item title faded
+  &__item-title-faded
+    color: $c-gray-dark
+
+
+  // $Order item total
+  &__item-total
+    flex-grow: 0
+    flex-shrink: 0
+    display: block
+    font-family: $f-sans
+    font-size: 16px
+    line-height: 1
+    font-weight: 600
+    text-align: right
+    color: $c-gray-ultra-dark
+
+    +media-max-s-minor
+      font-size: 14px
+
+
+  // $Order item remove
+  &__item-remove
+    flex-grow: 0
+    flex-shrink: 0
+    display: block
+    width: 30px
+    height: 30px
+    margin-top: -6px
+    margin-left: 10px
+    border: none
+    background-color: transparent
+    font-size: 0
+    line-height: 0
+    color: transparent
+    cursor: pointer
+    text-align: center
+    transition: .3s
+
+    +media-max-s-minor
+      width: 20px
+      height: 20px
+      margin-top: -2px
+
+    &:before
+      content: '\e908'
+      display: block
+      font-family: icons
+      font-size: 14px
+      line-height: 30px
+      color: $c-red-medium
+      transition: .3s
+
+      +media-max-s-minor
+        line-height: 20px
+
+    &:hover
+      opacity: .75
+
+    &:focus
+      outline: none
+
+
+  // $Order options label
+  &__options-label
+    display: block
+    margin: 10px 0 0
+    white-space: nowrap
+    font-family: $f-sans
+    font-size: 14px
+    font-weight: 600
+    color: $c-gray-dark
+
+    // $Order options label CONTEXT: $Order MOD: role basket
+    // $Order options label CONTEXT: $Order MOD: role editor
+    #{$block}_role_basket &,
+    #{$block}_role_editor &
+      font-weight: 400
+
+
+  // $Order options switch
+  &__options-switch
+    display: block
+    margin: 10px 0
+    padding: 0
+    white-space: nowrap
+    font-family: $f-sans
+    font-size: 14px
+    font-weight: 600
+    color: $c-gray-dark
+    cursor: pointer
+    text-decoration: none
+    white-space: nowrap
+    background-color: transparent
+    border: none
+    transition: all .3s
+
+    +media-max-s-minor
+      margin-bottom: 5px
+
+    &:after
+      content: '\e90e'
+      display: inline-block
+      margin-left: 10px
+      font-family: icons
+      font-size: 20px
+      line-height: 16px
+      font-weight: 400
+      color: inherit
+      vertical-align: middle
+
+    &:hover
+      opacity: .75
+
+    &:focus
+      outline: none
+
+    // $Order options switch STATE: active
+    &.is-active
+      &:after
+        content: '\e90f'
+        margin-top: -2px
+
+
+  // $Order options
+  &__options
+    display: block
+    width: 100%
+    list-style: none
+
+    // $Order options CONTEXT: $Order MOD: role basket
+    // $Order options CONTEXT: $Order MOD: role editor
+    #{$block}_role_basket &,
+    #{$block}_role_editor &
+      padding: 10px 40px 10px 0
+
+    // $Order options CONTEXT: $Order MOD: role details
+    #{$block}_role_details &
+      padding: 10px 0 10px 20px
+
+    +media-max-s-minor
+      #{$block}_role_details &
+        padding-left: 10px
+
+      #{$block}_role_basket &,
+      #{$block}_role_editor &
+        padding-right: 30px
+
+    &.is-hidden
+      display: none
+
+
+  // $Order option
+  &__option
+    display: flex
+    flex-direction: row
+    justify-content: flex-start
+    align-items: center
+    width: 100%
+
+    &:not(:last-child)
+      margin-bottom: 20px
+
+      #{$block}_role_basket &,
+      #{$block}_role_editor &,
+      #{$block}_role_details &
+        margin-bottom: 15px
+
+      +media-max-s-minor
+        #{$block}_role_basket &,
+        #{$block}_role_editor &,
+        #{$block}_role_details &
+          margin-bottom: 10px
+
+
+  // $Order option title
+  &__option-title
+    flex-grow: 1
+    flex-shrink: 1
+    width: 100%
+    padding-right: 10px
+    font-family: $f-sans
+    font-size: 16px
+    line-height: 1
+    font-weight: 400
+    color: $c-gray-extra-dark
+
+    // $Order option value CONTEXT: $Order MOD: role basket
+    // $Order option value CONTEXT: $Order MOD: role details
+    #{$block}_role_basket &,
+    #{$block}_role_editor &,
+    #{$block}_role_details &
+      color: $c-gray-dark
+      font-size: 14px
+
+
+  // $Order option titlelight
+  &__option-title-light
+    font-weight: 300
+
+
+  // $Order option titlebold
+  &__option-title-bold
+    font-weight: 600
+
+
+  // $Order option value
+  &__option-value
+    flex-grow: 0
+    flex-shrink: 0
+    display: block
+    height: 20px
+    font-family: $f-sans
+    font-size: 16px
+    line-height: 1
+    font-weight: 600
+    line-height: 20px
+    text-align: right
+    color: $c-gray-ultra-dark
+
+    // $Order option value CONTEXT: $Order MOD: role basket
+    // $Order option value CONTEXT: $Order MOD: role details
+    #{$block}_role_basket &,
+    #{$block}_role_editor &,
+    #{$block}_role_details &
+      color: $c-gray-extra-dark
+      font-size: 14px
+
+
+  // $Order option button
+  &__option-button
+    flex-grow: 0
+    flex-shrink: 0
+    height: 30px
+    margin-left: 10px
+    padding: 0 10px
+
+
+  // $Order option radio
+  &__option-radio
+    flex-grow: 0
+    flex-shrink: 0
+    display: block
+    width: auto
+    margin-left: 10px
+    cursor: pointer
+
+
+  // $Order option radio input
+  &__option-radio-input
+    display: none
+
+
+  // $Order option radio indicator
+  &__option-radio-indicator
+    position: relative
+    display: block
+
+    #{$block}__option-radio-input:disabled ~ &
+      cursor: not-allowed
+
+    &:before
+      content: ''
+      display: block
+      width: 30px
+      height: 30px
+      background-color: $c-white
+      border: 1px solid $c-gray-light
+      border-radius: 4px
+
+      #{$block}__option-radio-input:disabled ~ &
+        background-color: $c-gray-ultra-light
+
+    &:after
+      content: ''
+      position: absolute
+      top: 50%
+      left: 50%
+      display: block
+      width: 20px
+      height: 20px
+      background-color: $c-brand
+      border-radius: 4px
+      visibility: hidden
+      transform: translate(-50%, -50%)
+
+      #{$block}__option-radio-input:checked ~ &
+        visibility: visible
+
+      #{$block}__option-radio-input:disabled ~ &
+        background-color: $c-gray-light
+
+
+  // $Order total
+  &__total
+    display: flex
+    flex-direction: row
+    justify-content: space-between
+    align-items: center
+    width: 100%
+    font-family: $f-sans
+    font-size: 18px
+    line-height: 1
+    font-weight: 600
+    color: $c-gray-ultra-dark
+
+    #{$block}_role_basket &,
+    #{$block}_role_editor &
+      padding-right: 40px
+      padding-left: 120px
+
+    #{$block}_role_details &
+      padding-left: 60px
+
+    +media-max-s-minor
+      font-size: 16px
+
+      #{$block}_role_basket &,
+      #{$block}_role_editor &
+        padding-right: 30px
+        padding-left: 75px
+
+    +media-max-xs
+      #{$block}_role_basket &,
+      #{$block}_role_editor &
+        padding-left: 35px
+
+
+
+  // $Order total label
+  &__total-label
+    text-align: left
+
+
+  // $Order total value
+  &__total-value
+    text-align: right
+
+
+  // $Order placeholder
+  &__placeholder
+    display: block
+    width: 100%
+    font-family: $f-sans
+    font-size: 18px
+    line-height: 1
+    font-weight: 400
+    color: $c-gray-dark
+    text-align: center

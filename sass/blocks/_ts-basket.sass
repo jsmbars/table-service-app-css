@@ -1,0 +1,169 @@
+@import '../helpers/settings'
+@import '../helpers/mixins'
+
+////////////////////////////////////////
+// $Basket
+////////////////////////////////////////
+
+//////////////////////////////////////// Block variables
+
+
+//////////////////////////////////////// Block mixins and functions
+
+
+//////////////////////////////////////// Block styles
+$block: ".ts-basket"
+
+#{$block}
+  position: fixed
+  right: 0
+  left: 0
+  bottom: 0
+  z-index: 200
+  display: block
+  width: 100%
+  height: 0
+  background-color: $c-white
+  transition: all, .6s
+
+  // $Basket STATE: expanded
+  &.is-expanded
+    height: 100vh
+
+
+  // $Basket control
+  &__control
+    position: absolute
+    bottom: 100%
+    right: 0
+    left: 0
+    display: block
+    width: 100%
+    padding: 20px 10px
+    background-color: $c-brand
+    cursor: pointer
+
+
+  // $Basket label
+  &__label
+    display: block
+    font-family: $f-sans
+    font-size: 20px
+    line-height: 1
+    font-weight: 400
+    color: $c-white
+    text-transform: uppercase
+    text-align: center
+
+    +media-max-m-major
+      font-size: 18px
+
+    +media-max-s-major
+      font-size: 16px
+
+
+  // $Basket label light
+  &__label-light
+    font-weight: 300
+
+
+  // $Basket label bold
+  &__label-bold
+    font-weight: 600
+
+
+  // $Basket panel
+  &__panel
+    display: flex
+    flex-direction: column
+    justify-content: flex-start
+    align-items: center
+    width: 100%
+    height: 100%
+    overflow: hidden
+
+
+  // $Basket header
+  &__header
+    flex-grow: 0
+    flex-shrink: 0
+    align-self: flex-start
+    display: block
+    width: 100%
+    box-shadow: 0 2px 8px -2px $c-shadow-primary
+
+
+  // $Basket content
+  &__content
+    flex-grow: 1
+    flex-shrink: 1
+    width: 100%
+    overflow: auto
+
+
+  // $Basket footer
+  &__footer
+    flex-grow: 0
+    flex-shrink: 0
+    align-self: flex-end
+    display: block
+    width: 100%
+    box-shadow: 0 -2px 8px -2px $c-shadow-primary
+
+
+  // $Basket inner
+  &__inner
+    position: relative
+    z-index: 1
+    display: block
+    width: 100%
+    max-width: 840px
+    margin: 0 auto
+    padding: 20px
+
+    #{$block}__content &
+      padding-top: 40px
+      padding-bottom: 40px
+
+    +media-max-s-minor
+      padding-left: 10px
+      padding-right: 10px
+
+
+  // $Basket title
+  &__title
+    display: block
+    font-family: $f-sans
+    font-size: 30px
+    line-height: 1
+    font-weight: 600
+    color: $c-gray-ultra-dark
+    text-transform: uppercase
+    text-align: center
+
+    +media-max-l-major
+      font-size: 28px
+
+    +media-max-m-major
+      font-size: 26px
+
+    +media-max-s-major
+      font-size: 24px
+
+
+  // $Basket actions
+  &__actions
+    display: flex
+    flex-direction: row
+    justify-content: center
+    align-items: center
+    width: 100%
+
+
+  // $Basket action
+  &__action
+    flex-grow: 0
+    flex-shrink: 0
+
+    &:not(:last-child)
+      margin-right: 20px
