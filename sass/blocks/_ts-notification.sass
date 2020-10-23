@@ -1,0 +1,184 @@
+@import '../helpers/settings'
+@import '../helpers/mixins'
+
+////////////////////////////////////////
+// $Notification
+////////////////////////////////////////
+
+//////////////////////////////////////// Block variables
+
+// $notification-accent-extra-light-color-name, $notification-accent-extra-light-color-background, $notification-accent-extra-light-color-border
+$notification-accent-extra-light-colors: ("pink-light" $c-pink-extra-light $c-pink-light, "red-extra-light" $c-red-extra-light $c-red-light, "orange-extra-light" $c-orange-extra-light $c-orange-light, "yellow-extra-light" $c-yellow-extra-light $c-yellow-light, "green-extra-light" $c-green-extra-light $c-green-light, "blue-extra-light" $c-blue-extra-light $c-blue-light, "purple-extra-light" $c-purple-extra-light $c-purple-light)
+
+
+//////////////////////////////////////// Block mixins and functions
+
+
+//////////////////////////////////////// Block styles
+$block: ".ts-notification"
+#{$block}
+  position: relative
+  display: flex
+  flex-direction: row
+  justify-content: flex-start
+  align-items: flex-start
+  width: 100%
+  padding: 15px
+  color: $c-gray-extra-dark
+  background-color: $c-white
+  transition: all .3s
+
+  +media-max-s-minor
+    padding: 10px
+
+  // $Notification MOD: role toast
+  &_role_toast
+    border: 1px solid $c-gray-extra-light
+    border-radius: 8px
+
+    &:not(:last-child)
+      margin-bottom: 20px
+
+  // Accent light color modifiers
+  @each $notification-accent-extra-light-color-name, $notification-accent-extra-light-color-background, $notification-accent-extra-light-color-border in $notification-accent-extra-light-colors
+    &_color_#{$notification-accent-extra-light-color-name}
+      border-color: $notification-accent-extra-light-color-border
+      background-color: $notification-accent-extra-light-color-background
+
+
+  // $Notification icon
+  &__icon
+    flex-grow: 0
+    flex-shrink: 0
+    align-self: center
+    display: block
+    width: 30px
+    height: 30px
+    border: 1px solid $c-gray-dark
+    color: $c-gray-dark
+    border-radius: 50%
+
+    &:after
+      display: block
+      font-family: icons
+      font-size: 12px
+      line-height: 30px
+      color: inherit
+      text-align: center
+
+    // $Notification icon MOD: check
+    &_check
+      &:after
+        content: "\e907"
+
+    // $Notification icon MOD: eaclamation
+    &_exclamation
+      &:after
+        content: "\e918"
+        font-size: 18px
+
+
+  // $Notification info
+  &__info
+    flex-grow: 1
+    flex-shrink: 1
+    display: block
+
+    &:not(:first-child)
+      padding-left: 20px
+
+      +media-max-s-minor
+        padding-left: 15px
+
+    &:not(:last-child)
+      padding-right: 20px
+
+      +media-max-s-minor
+        padding-right: 15px
+
+
+
+  // $Notification text
+  &__text
+    position: relative
+    display: block
+    font-family: $f-sans
+    font-size: 14px
+    font-weight: 400
+    color: inherit
+
+    & ~ &
+      margin-top: 5px
+
+
+  // $Notification text bold
+  &__text-bold
+    font-weight: 800
+
+
+  // $Notification text light
+  &__text-light
+    font-weight: 300
+
+
+  // $Notification text line
+  &__text-line
+    display: block
+
+    &:not(:last-child)
+      margin-bottom: 5px
+
+    // $Notification text line MOD: marker dash
+    &_marker_dash
+      &:before
+        content: "\2013"
+        display: inline-block
+        margin-right: 5px
+
+
+  // $Notification text link
+  &__text-link
+    color: inherit
+    text-decoration: underline
+
+    &:hover
+      text-decoration: none
+
+
+  // $Notification action
+  &__action
+    flex-grow: 0
+    flex-shrink: 0
+    display: block
+    width: 20px
+    height: 20px
+    margin: -5px 0 0
+    padding: 0
+    cursor: pointer
+    border: none
+    box-shadow: none
+    color: $c-gray-extra-dark
+    background-color: transparent
+    opacity: 0.6
+    transition: all .3s
+
+    &:before
+      content: ""
+      display: block
+      font-family: icons
+      font-size: 14px
+      line-height: 20px
+      color: $c-gray-extra-dark
+      text-align: right
+
+    &:hover
+      opacity: 1
+
+    &:focus
+      outline: none
+
+    // $Notification action MOD: role dismiss
+    &_role_dismiss
+      &:before
+        content: "\e908"
+

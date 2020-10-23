@@ -1,0 +1,62 @@
+@import '../helpers/settings'
+@import '../helpers/mixins'
+
+////////////////////////////////////////
+// $Page notifications
+////////////////////////////////////////
+
+//////////////////////////////////////// Block variables
+
+
+//////////////////////////////////////// Block mixins and functions
+
+
+//////////////////////////////////////// Block styles
+$block: ".ts-page-notifications"
+
+#{$block}
+  display: block
+  width: 100%
+
+  // $Page notifications MOD: role toasts
+  &_role_toasts
+    padding: 0 10px
+
+  // $Page notifications MOD: size xs
+  &_size_xs
+    max-width: 400px
+
+  // $Page notifications MOD: size s-minor
+  &_size_s-minor
+    max-width: 480px
+
+  // $Page notifications MOD: size s-major
+  &_size_s-major
+    max-width: 640px
+
+  // $Page notifications MOD: size m-minor
+  &_size_m-minor
+    max-width: 800px
+
+  // $Page notifications MOD: size m-major
+  &_size_m-major
+    max-width: 960px
+
+  // $Page notifications MOD: size l-minor
+  &_size_l-minor
+    max-width: 1120px
+
+  // $Page notifications MOD: size l-major
+  &_size_l-major
+    max-width: 1280px
+
+  // $Page notifications MOD: position bottom center
+  &_position_bottom-center
+    position: fixed
+    z-index: 300
+    bottom: 100px
+    left: 50%
+    transform: translateX(-50%)
+
+    +media-max-s-minor
+      bottom: 80px

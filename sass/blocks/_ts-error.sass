@@ -1,0 +1,55 @@
+@import '../helpers/settings'
+@import '../helpers/mixins'
+
+////////////////////////////////////////
+// $Error message
+////////////////////////////////////////
+
+//////////////////////////////////////// Block variables
+
+
+//////////////////////////////////////// Block mixins and functions
+
+
+//////////////////////////////////////// Block styles
+$block: ".ts-error"
+
+#{$block}
+  display: block
+  position: relative
+  padding: 5px 10px 5px 30px
+  border-radius: 2px
+  background-color: $c-red-medium
+
+  &:before
+    content: "\e912"
+    position: absolute
+    top: 10px
+    left: 10px
+    display: block
+    font-family: icons
+    font-size: 10px
+    line-height: 1
+    color: $c-white
+
+  // $Error message MOD: position top
+  &_position_top
+    margin-bottom: 10px
+
+  // $Error message MOD: position bottom
+  &_position_bottom
+    margin-top: 10px
+
+
+  // $Error message text
+  &__text
+    position: relative
+    display: block
+    font-family: $f-sans
+    font-size: 14px
+    line-height: 1.25
+    font-weight: 400
+    color: $c-white
+
+    &:not(:last-child)
+      margin-bottom: 4px

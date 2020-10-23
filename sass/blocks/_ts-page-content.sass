@@ -1,0 +1,294 @@
+@import '../helpers/settings'
+@import '../helpers/mixins'
+
+////////////////////////////////////////
+// $Page content
+////////////////////////////////////////
+
+//////////////////////////////////////// Block variables
+
+
+//////////////////////////////////////// Block mixins and functions
+
+
+//////////////////////////////////////// Block styles
+$block: ".ts-page-content"
+
+#{$block}
+  position: relative
+  z-index: 1
+  display: block
+  width: 100%
+
+  // $Page content MOD: role menu
+  &_role_menu
+
+  // $Page content MOD: role details
+  &_role_details
+
+  // $Page content MOD: role payment
+  &_role_payment
+
+
+  // $Page header intro
+  &__intro
+    position: relative
+    z-index: 1
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+    width: 100%
+    overflow: hidden
+
+
+  // $Page content background
+  &__background
+    position: absolute
+    top: -10px
+    right: -10px
+    bottom: -10px
+    left: -10px
+    z-index: -1
+    display: block
+    background-color: $c-gray-medium
+    background-size: cover
+    background-position: center center
+    background-repeat: no-repeat
+
+    // $Page content background MOD: filter blur
+    &_filter_blur
+      filter: url('data:image/svg+xml;utf8,<svg version="1.1" xmlns="http://www.w3.org/2000/svg"><filter id="blur"><feGaussianBlur stdDeviation="3" /></filter></svg>#blur')
+      filter: blur(3px)
+
+    // $Page content background MOD: overlay dark
+    &_overlay_dark
+      &:after
+        content: ''
+        position: absolute
+        top: 0
+        right: 0
+        bottom: 0
+        left: 0
+        z-index: -1
+        display: block
+        overflow: auto
+        background-color: rgba(0,0,0,.5)
+        background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAIGNIUk0AAHolAACAgwAA+f8AAIDoAABSCAABFVgAADqXAAAXb9daH5AAAAAZSURBVHjaYmCAAGM0GjfHGEMGAAAA//8DACm0ATMe8beGAAAAAElFTkSuQmCC)
+        background-repeat: repeat
+        background-attachment: fixed
+        box-shadow: inset 0 3px 3px -2px #0f0f0f,inset 0 -3px 3px -2px #0f0f0f
+
+
+  // $Page content section
+  &__section
+    position: relative
+    z-index: 1
+    display: block
+    width: 100%
+
+
+  // $Page content inner
+  &__inner
+    position: relative
+    z-index: 1
+    display: block
+    width: 100%
+    max-width: 1280px
+    margin: 0 auto
+    padding: 40px
+
+    +media-max-l-major
+      padding-left: 35px
+      padding-right: 35px
+
+    +media-max-l-minor
+      padding-left: 30px
+      padding-right: 30px
+
+    +media-max-m-major
+      padding-left: 25px
+      padding-right: 25px
+
+    +media-max-m-minor
+      padding-left: 20px
+      padding-right: 20px
+
+    +media-max-s-major
+      padding-left: 15px
+      padding-right: 15px
+
+    +media-max-s-minor
+      padding-left: 10px
+      padding-right: 10px
+
+    +media-max-xs
+      #{$block}__intro &
+        padding-top: 30px
+        padding-bottom: 30px
+
+
+  // $Page content layout
+  &__layout
+    display: flex
+    flex-direction: row
+    justify-content: flex-start
+    align-items: flex-start
+    width: 100%
+
+    +media-max-m-major
+      #{$block}_role_details &
+        flex-direction: column-reverse
+
+    &:not(:last-child)
+      margin-bottom: 20px
+
+      #{$block}_role_details &
+        margin-bottom: 40px
+
+      +media-max-s-major
+        #{$block}_role_details &
+          margin-bottom: 20px
+
+
+  // $Page content layout group
+  &__layout-group
+    flex-grow: 1
+    flex-shrink: 1
+    width: 100%
+
+    &:nth-child(1)
+      #{$block}_role_details &
+        width: calc(100% - 480px)
+        padding-right: 40px
+
+      +media-max-l-major
+        #{$block}_role_details &
+          width: calc(100% - 440px)
+
+      +media-max-l-minor
+        #{$block}_role_details &
+          width: calc(100% - 400px)
+
+      +media-max-m-major
+        #{$block}_role_details &
+          width: 100%
+          padding-right: 0
+          margin-top: 40px
+
+    &:nth-child(2)
+      #{$block}_role_details &
+        flex-grow: 0
+        flex-shrink: 0
+        width: 480px
+
+      +media-max-l-major
+        #{$block}_role_details &
+          width: 440px
+
+      +media-max-l-minor
+        #{$block}_role_details &
+          width: 400px
+
+      +media-max-m-major
+        #{$block}_role_details &
+          flex-grow: 1
+          flex-shrink: 1
+          width: 100%
+
+
+  // $Page content group
+  &__form,
+  &__order,
+  &__menu
+    display: block
+    width: 100%
+
+    &:not(:last-child)
+      margin-bottom: 20px
+
+
+  // $Page header logo
+  &__logo
+    display: block
+    width: 100%
+    text-decoration: none
+
+    &:focus
+      outline: none
+
+    &:not(:last-child)
+      &:after
+        content: ''
+        display: block
+        width: 240px
+        height: 2px
+        margin: 20px auto
+        background-image: linear-gradient(to right, rgba(255,255,255,0.5) 10%, rgba(255,255,255,0) 0%)
+        background-position: center
+        background-size: 20px 2px
+        background-repeat: repeat-x
+
+        +media-max-s-major
+          width: 120px
+          margin-top: 10px
+          margin-bottom: 10px
+          background-size: 10px 2px
+
+
+  // $Page header logo image
+  &__logo-image
+    display: block
+    max-width: 240px
+    max-height: 80px
+    margin: 0 auto
+
+    +media-max-s-major
+      max-width: 120px
+      max-height: 40px
+
+
+  // $Page header title
+  &__title
+    display: block
+    font-family: $f-sans
+    font-size: 30px
+    line-height: 1
+    font-weight: 400
+    color: $c-white
+    text-shadow: 0 1px 2px rgba(0,0,0,.5)
+    text-align: center
+
+    +media-max-l-major
+      font-size: 28px
+
+    +media-max-m-major
+      font-size: 26px
+
+    +media-max-s-major
+      font-size: 24px
+
+
+  // $Page content actions
+  &__actions
+    display: flex
+    flex-direction: row
+    justify-content: center
+    align-items: center
+    width: 100%
+
+
+  // $Page content action
+  &__action
+
+
+  // $Page content placeholder
+  &__placeholder
+    display: block
+    width: 100%
+    font-family: $f-sans
+    font-size: 18px
+    line-height: 1
+    font-weight: 400
+    color: $c-gray-dark
+    text-align: center

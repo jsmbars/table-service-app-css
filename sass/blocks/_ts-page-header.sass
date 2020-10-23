@@ -1,0 +1,186 @@
+@import '../helpers/settings'
+@import '../helpers/mixins'
+
+////////////////////////////////////////
+// $Page header
+////////////////////////////////////////
+
+//////////////////////////////////////// Block variables
+
+
+//////////////////////////////////////// Block mixins and functions
+
+
+//////////////////////////////////////// Block styles
+$block: ".ts-page-header"
+
+#{$block}
+  position: relative
+  z-index: 1
+  display: block
+  width: 100%
+  background-color: $c-brand
+
+  // $Page header MOD: role menu
+  &_role_menu
+
+  // $Page header MOD: role details
+  &_role_details
+
+  // $Page header MOD: role payment
+  &_role_payment
+
+
+  // $Page header inner
+  &__inner
+    display: block
+    width: 100%
+    max-width: 1280px
+    margin: 0 auto
+    padding: 10px 40px
+
+    +media-max-l-major
+      padding-left: 35px
+      padding-right: 35px
+
+    +media-max-l-minor
+      padding-left: 30px
+      padding-right: 30px
+
+    +media-max-m-major
+      padding-left: 25px
+      padding-right: 25px
+
+    +media-max-m-minor
+      padding-left: 20px
+      padding-right: 20px
+
+    +media-max-s-major
+      padding-left: 15px
+      padding-right: 15px
+
+    +media-max-s-minor
+      padding-left: 10px
+      padding-right: 10px
+
+
+  // $Page header group
+  &__group
+    position: relative
+    display: flex
+    flex-direction: row
+    justify-content: center
+    align-items: center
+    width: 100%
+
+
+  // $Page header action
+  &__action
+    position: absolute
+    top: 50%
+    left: 0
+    display: block
+    border: none
+    background-color: transparent
+    cursor: pointer
+    white-space: nowrap
+    transform: translateY(-50%)
+
+    &:before
+      display: inline-block
+      margin-right: 15px
+      font-family: icons
+      font-size: 30px
+      line-height: 30px
+      color: $c-gray-ultra-light
+      vertical-align: middle
+      transition: .3s
+
+      +media-max-s-major
+      margin-right: 10px
+
+    &:hover
+      &:before
+        color: $c-gray-extra-light
+
+    &:focus
+      outline: none
+
+    // $Page header action MOD: role previous
+    &_role_previous
+      &:before
+        content: '\e911'
+        font-size: 30px
+
+        +media-max-s-major
+          font-size: 25px
+
+
+  // $Page header action text
+  &__action-text
+    display: inline-block
+    font-family: $f-sans
+    font-size: 16px
+    line-height: 1
+    color: $c-white
+    vertical-align: middle
+
+    +media-max-s-major
+      font-size: 14px
+
+
+  // $Page header logo
+  &__logo
+    display: block
+    width: 100%
+    text-decoration: none
+
+    &:focus
+      outline: none
+
+
+  // $Page header logo-text
+  &__logo-text
+    display: block
+    font-family: $f-sans
+    font-size: 30px
+    line-height: 1
+    font-weight: 600
+    color: $c-white
+    text-shadow: 0 1px 2px rgba(0,0,0,.5)
+    text-align: center
+    transition: all .3s
+
+    +media-max-s-major
+      font-size: 25px
+
+
+  // $Page header meta
+  &__meta
+    position: absolute
+    top: 50%
+    right: 0
+    display: block
+    font-family: $f-sans
+    font-size: 16px
+    line-height: 1
+    font-weight: 400
+    color: $c-white
+    text-align: right
+    transform: translateY(-50%)
+
+    +media-max-s-major
+      font-size: 14px
+
+    +media-max-xs
+      max-width: 80px
+
+
+  // $Page header meta light
+  &__meta-light
+    font-weight: 300
+
+
+  // $Page header meta bold
+  &__meta-bold
+    font-weight: 600

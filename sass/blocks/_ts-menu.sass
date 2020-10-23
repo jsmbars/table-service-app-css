@@ -1,0 +1,592 @@
+@import '../helpers/settings'
+@import '../helpers/mixins'
+
+////////////////////////////////////////
+// $Menu
+////////////////////////////////////////
+
+//////////////////////////////////////// Block variables
+
+
+//////////////////////////////////////// Block mixins and functions
+
+
+//////////////////////////////////////// Block styles
+$block: ".ts-menu"
+
+#{$block}
+  position: relative
+  z-index: 1
+  display: block
+  width: 100%
+
+
+  // $Menu header
+  &__header
+    position: sticky
+    top: 0
+    z-index: 100
+    display: block
+    width: 100%
+    background-color: $c-white
+    box-shadow: 0 2px 8px -2px $c-shadow-primary
+
+    // Set default position in Edge
+    @supports (-ms-ime-align: auto)
+      position: relative !important
+      z-index: auto !important
+      top: auto !important
+
+    // Set default position in IE11
+    @media all and (-ms-high-contrast: none), (-ms-high-contrast: active)
+      position: relative !important
+      z-index: auto !important
+      top: auto !important
+
+
+  // $Menu content
+  &__content
+    display: block
+    width: 100%
+
+
+  // $Menu inner
+  &__inner
+    position: relative
+    z-index: 1
+    display: block
+    width: 100%
+    max-width: 1280px
+    margin: 0 auto
+    padding: 20px 40px
+
+    #{$block}__header &
+      padding-bottom: 0
+
+    #{$block}__content &
+      padding-top: 40px
+      padding-bottom: 80px
+
+    +media-max-l-major
+      padding-left: 35px
+      padding-right: 35px
+
+    +media-max-l-minor
+      padding-left: 30px
+      padding-right: 30px
+
+    +media-max-m-major
+      padding-left: 25px
+      padding-right: 25px
+
+    +media-max-m-minor
+      padding-left: 20px
+      padding-right: 20px
+
+    +media-max-s-major
+      padding-left: 15px
+      padding-right: 15px
+
+    +media-max-s-minor
+      padding-left: 10px
+      padding-right: 10px
+
+
+  // $Menu filter
+  &__filter
+    display: block
+    width: 100%
+    margin-bottom: 20px
+
+    +media-max-s-major
+      margin-bottom: 10px
+
+
+  // $Menu navbar
+  &__navbar
+    position: relative
+    display: flex
+    flex-direction: row
+    justify-content: flex-start
+    align-items: flex-start
+    width: 100%
+    user-select: none
+
+
+  // $Menu navbar control
+  &__navbar-control
+    height: 20px
+    width: 20px
+    font-size: 0
+    line-height: 0
+    color: transparent
+    text-decoration: none
+    cursor: pointer
+
+    &:before
+      content: ''
+      display: block
+      font-family: icons
+      font-size: 20px
+      line-height: 20px
+      font-weight: 400
+      color: $c-gray-light
+      transition: all .3s
+
+    &:hover
+      &:before
+        color: $c-white
+
+    // $Menu navbar control MOD: role previous
+    &_role_previous
+      left: 0
+      margin-right: 10px
+      text-align: left
+
+      &:before
+        content: '\e90b'
+
+    // $Menu navbar control MOD: role next
+    &_role_next
+      right: 0
+      margin-left: 10px
+      text-align: right
+
+      &:before
+        content: '\e90a'
+
+
+  // $Menu navbar scroll area
+  &__navbar-scroll
+    position: relative
+    display: block
+    width: 100%
+    overflow: hidden
+
+
+  // $Menu navbar actions
+  &__navbar-actions
+    display: inline-block
+    white-space: nowrap
+    vertical-align: bottom
+
+
+  // $Menu navbar action
+  &__navbar-action
+    position: relative
+    display: inline-block
+    padding: 0 1px 20px
+    white-space: nowrap
+    text-align: left
+    cursor: pointer
+    font-size: 14px
+    line-height: 1
+    font-family: $f-sans
+    font-weight: 300
+    text-decoration: none
+    color: $c-gray-ultra-dark
+    outline: none
+    text-transform: uppercase
+    background-color: transparent
+    border: none
+    transition: all .3s
+
+    +media-max-s-major
+      padding-bottom: 10px
+
+    +media-max-s-minor
+      font-size: 12px
+
+    &:after
+      content: ""
+      display: block
+      position: absolute
+      bottom: 0
+      right: 0
+      left: 0
+      height: 5px
+      background-color: transparent
+      transition: all .3s
+
+      +media-max-s-major
+        height: 3px
+
+    &:hover
+      color: $c-brand
+
+      &:after
+        background-color: $c-brand
+
+    &:focus
+      outline: none
+
+    &:not(:last-child)
+      margin-right: 45px
+
+      +media-max-s-major
+        margin-right: 30px
+
+      +media-max-s-minor
+        margin-right: 15px
+
+    // $Menu navbar action STATE: active
+    &.is-active
+      cursor: default
+      font-weight: 600
+      color: $c-brand
+
+      &:after
+        background-color: $c-brand
+
+
+  // $Menu navbar action text
+  &__navbar-action-text
+
+
+  // $Menu category
+  &__category
+    position: relative
+    display: block
+    width: 100%
+
+    &:not(:last-child)
+      padding-bottom: 40px
+
+
+  // $Menu category header
+  &__category-header
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+    overflow: hidden
+    width: 100%
+    padding-bottom: 10px
+
+
+  // $Menu category content
+  &__category-content
+    display: block
+    width: 100%
+
+
+  // $Menu category info
+  &__category-info
+    position: relative
+    display: block
+
+    &:before
+      content: ''
+      position: absolute
+      bottom: 10px
+      right: calc(100% + 10px)
+      width: 1000px
+      height: 2px
+      background-image: linear-gradient(to right, $c-brand-light 20%, rgba(0,0,0,0) 0%)
+      background-position: center
+      background-size: 10px 2px
+      background-repeat: repeat-x
+
+    &:after
+      content: ''
+      position: absolute
+      bottom: 10px
+      left: calc(100% + 10px)
+      width: 1000px
+      height: 2px
+      background-image: linear-gradient(to right, $c-brand-light 20%, rgba(0,0,0,0) 0%)
+      background-position: center
+      background-size: 10px 2px
+      background-repeat: repeat-x
+
+    &:not(:last-child)
+      margin-bottom: 10px
+
+
+  // $Menu category title
+  &__category-title
+    position: relative
+    display: block
+    font-family: $f-sans
+    font-size: 20px
+    line-height: 1
+    font-weight: 600
+    color: $c-brand
+    text-transform: uppercase
+    text-align: center
+    background-color: $c-white
+
+    &:not(:last-child)
+      margin-bottom: 5px
+
+
+  // $Menu category text
+  &__category-text
+    position: relative
+    display: block
+    font-family: $f-sans
+    font-size: 16px
+    line-height: 1.25
+    font-weight: 300
+    text-align: center
+    color: $c-brand
+    transition: all .3s
+
+    &:not(:last-child)
+      margin-bottom: 5px
+
+
+  // $Menu list
+  &__list
+    display: block
+    width: 100%
+
+    &:not(:last-child)
+      margin-bottom: 20px
+
+
+  // $Menu item
+  &__item
+    position: relative
+    display: block
+    width: 100%
+
+    &:not(:last-child)
+      &:after
+        content: ''
+        position: absolute
+        bottom: 0
+        right: 0
+        left: 0
+        border-bottom: 1px solid $c-gray-ultra-light
+
+    // $Menu item STATE: active
+    &.is-active
+      background-color: $c-brand-hyper-light
+
+      &:not(:last-child)
+        &:after
+          border-bottom: 2px solid $c-white
+
+
+  // $Menu item header
+  &__item-header
+    position: relative
+    display: block
+    width: 100%
+    padding: 20px
+
+    +media-max-s-major
+      padding: 15px
+
+    +media-max-s-minor
+      padding-left: 10px
+      padding-right: 10px
+
+
+  // $Menu item info
+  &__item-info
+    display: block
+    width: calc(100% - 100px)
+    padding-right: 20px
+
+    +media-max-s-major
+      width: 100%
+      padding-right: 0
+
+
+  // $Menu item title
+  &__item-title
+    display: block
+    font-family: $f-sans
+    font-size: 18px
+    line-height: 1.25
+    font-weight: 400
+    color: $c-gray-extra-dark
+
+    +media-max-s-minor
+      font-size: 16px
+
+    &:not(:last-child)
+      margin-bottom: 5px
+
+
+  // $Menu item title indicators
+  &__item-title-indicators
+    display: inline-block
+    white-space: nowrap
+
+
+  // $Menu item title indicator
+  &__item-title-indicator
+    display: inline-block
+    width: 24px
+    height: 24px
+    border-radius: 50%
+    font-family: $f-sans
+    font-size: 12px
+    line-height: 24px
+    color: $c-white
+    text-align: center
+    cursor: default
+    vertical-align: top
+
+    +media-max-s-minor
+      width: 20px
+      height: 20px
+      line-height: 20px
+      font-size: 11px
+
+    &:not(:last-child)
+      margin-right: 5px
+
+
+  // $Menu item text
+  &__item-text
+    display: block
+    font-family: $f-sans
+    font-size: 14px
+    line-height: 1.25
+    font-weight: 300
+    color: $c-gray-extra-dark
+
+    +media-max-s-minor
+      font-size: 13px
+
+    &:not(:last-child)
+      margin-bottom: 10px
+
+
+  // $Basket item price
+  &__item-price
+    flex-grow: 0
+    flex-shrink: 0
+    display: block
+    font-family: $f-sans
+    font-size: 16px
+    line-height: 1
+    font-weight: 600
+    color: $c-gray-extra-dark
+    transition: .3s
+
+    +media-max-s-major
+      line-height: 30px
+
+    +media-max-s-minor
+      font-size: 14px
+      line-height: 20px
+
+
+  // $Basket item price label
+  &__item-price-label
+    font-weight: 400
+
+
+  // $Basket item price value
+  &__item-price-value
+    font-weight: 800
+
+
+  // $Basket item quantity
+  &__item-quantity
+    position: absolute
+    top: 20px
+    right: 20px
+    display: flex
+    flex-direction: row
+    justify-content: flex-start
+    align-items: center
+
+    +media-max-s-major
+      top: auto
+      right: 15px
+      bottom: 20px
+
+    +media-max-s-minor
+      right: 10px
+      bottom: 15px
+
+
+  // $Basket item quantity action
+  &__item-quantity-action
+    flex-grow: 0
+    flex-shrink: 0
+    display: block
+    width: 30px
+    height: 30px
+    border: none
+    border-radius: 4px
+    background-color: $c-gray-ultra-light
+    font-family: $f-sans
+    font-size: 22px
+    line-height: 30px
+    font-weight: 600
+    color: $c-gray-dark
+    cursor: pointer
+    transition: .3s
+
+    +media-max-s-minor
+      width: 20px
+      height: 20px
+      font-size: 20px
+      line-height: 20px
+
+    #{$block}__item.is-active &
+      background-color: $c-gray-extra-light
+      color: $c-gray-extra-dark
+
+    &:hover
+      background-color: $c-brand
+      color: $c-white
+
+      #{$block}__item.is-active &
+        background-color: $c-brand
+        color: $c-white
+
+    &:focus
+      outline: none
+
+    &:disabled
+      cursor: not-allowed
+
+      &:hover
+        background-color: $c-gray-ultra-light
+        color: $c-gray-dark
+
+
+  // $Basket item quantity value
+  &__item-quantity-value
+    flex-grow: 0
+    flex-shrink: 0
+    display: block
+    width: 40px
+    height: 30px
+    font-family: $f-sans
+    font-size: 16px
+    line-height: 1
+    font-weight: 400
+    line-height: 30px
+    text-align: center
+    color: $c-gray-dark
+    transition: .3s
+
+    +media-max-s-minor
+      width: 30px
+      height: 20px
+      font-size: 14px
+      line-height: 20px
+
+    #{$block}__item.is-active &
+      color: $c-gray-extra-dark
+
+
+  // $Menu placeholder
+  &__placeholder
+    display: block
+    width: 100%
+    font-family: $f-sans
+    font-size: 16px
+    line-height: 1
+    font-weight: 400
+    color: $c-gray-dark
+    text-align: center
