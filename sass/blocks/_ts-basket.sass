@@ -28,7 +28,7 @@ $block: ".ts-basket"
 
   // $Basket STATE: expanded
   &.is-expanded
-    height: 100vh
+    height: 100%
 
 
   // $Basket control
@@ -126,8 +126,11 @@ $block: ".ts-basket"
       padding-bottom: 40px
 
     +media-max-s-minor
-      padding-left: 10px
-      padding-right: 10px
+      padding: 10px
+
+      #{$block}__content &
+        padding-top: 30px
+        padding-bottom: 30px
 
 
   // $Basket title
@@ -141,14 +144,11 @@ $block: ".ts-basket"
     text-transform: uppercase
     text-align: center
 
-    +media-max-l-major
-      font-size: 28px
-
     +media-max-m-major
-      font-size: 26px
+      font-size: 25px
 
     +media-max-s-major
-      font-size: 24px
+      font-size: 20px
 
 
   // $Basket actions

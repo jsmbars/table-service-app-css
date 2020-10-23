@@ -28,6 +28,9 @@ $block: ".ts-form-field"
   // $Form field MOD: icon calendar
   &_icon_calendar
 
+  // $Form field MOD: adjust menu
+  &_adjust_menu-filter
+
 
   // $Form field group
   &__group
@@ -118,10 +121,14 @@ $block: ".ts-form-field"
       border-radius: 2px
       background-color: $c-white
       border: 1px solid $c-gray-light
+      box-shadow: none
 
       #{$block}_icon_search &,
       #{$block}_icon_calendar &
         padding-left: 40px
+
+      #{$block}_adjust_menu-filter &
+        height: 30px
 
       #{$block}.is-error &
         border-color: $c-red-medium

@@ -98,6 +98,9 @@ $block: ".ts-menu"
     width: 100%
     margin-bottom: 20px
 
+    +media-max-s-major
+      margin-bottom: 10px
+
 
   // $Menu navbar
   &__navbar
@@ -105,7 +108,7 @@ $block: ".ts-menu"
     display: flex
     flex-direction: row
     justify-content: flex-start
-    align-items: center
+    align-items: flex-start
     width: 100%
     user-select: none
 
@@ -172,7 +175,7 @@ $block: ".ts-menu"
   &__navbar-action
     position: relative
     display: inline-block
-    padding: 20px 1px
+    padding: 0 1px 20px
     white-space: nowrap
     text-align: left
     cursor: pointer
@@ -188,6 +191,12 @@ $block: ".ts-menu"
     border: none
     transition: all .3s
 
+    +media-max-s-major
+      padding-bottom: 10px
+
+    +media-max-s-minor
+      font-size: 12px
+
     &:after
       content: ""
       display: block
@@ -199,6 +208,9 @@ $block: ".ts-menu"
       background-color: transparent
       transition: all .3s
 
+      +media-max-s-major
+        height: 3px
+
     &:hover
       color: $c-brand
 
@@ -209,7 +221,13 @@ $block: ".ts-menu"
       outline: none
 
     &:not(:last-child)
-      margin: 0 30px
+      margin-right: 45px
+
+      +media-max-s-major
+        margin-right: 30px
+
+      +media-max-s-minor
+        margin-right: 15px
 
     // $Menu navbar action STATE: active
     &.is-active
@@ -359,7 +377,7 @@ $block: ".ts-menu"
     padding: 20px
 
     +media-max-s-major
-      padding: 15px 15px 20px
+      padding: 15px
 
     +media-max-s-minor
       padding-left: 10px
@@ -383,8 +401,11 @@ $block: ".ts-menu"
     font-family: $f-sans
     font-size: 18px
     line-height: 1.25
-    font-weight: 600
+    font-weight: 400
     color: $c-gray-extra-dark
+
+    +media-max-s-minor
+      font-size: 16px
 
     &:not(:last-child)
       margin-bottom: 5px
@@ -410,6 +431,12 @@ $block: ".ts-menu"
     cursor: default
     vertical-align: top
 
+    +media-max-s-minor
+      width: 20px
+      height: 20px
+      line-height: 20px
+      font-size: 11px
+
     &:not(:last-child)
       margin-right: 5px
 
@@ -422,6 +449,9 @@ $block: ".ts-menu"
     line-height: 1.25
     font-weight: 300
     color: $c-gray-extra-dark
+
+    +media-max-s-minor
+      font-size: 13px
 
     &:not(:last-child)
       margin-bottom: 10px
@@ -442,6 +472,10 @@ $block: ".ts-menu"
     +media-max-s-major
       line-height: 30px
 
+    +media-max-s-minor
+      font-size: 14px
+      line-height: 20px
+
 
   // $Basket item price label
   &__item-price-label
@@ -450,7 +484,7 @@ $block: ".ts-menu"
 
   // $Basket item price value
   &__item-price-value
-    font-weight: 600
+    font-weight: 800
 
 
   // $Basket item quantity
@@ -470,6 +504,7 @@ $block: ".ts-menu"
 
     +media-max-s-minor
       right: 10px
+      bottom: 15px
 
 
   // $Basket item quantity action
@@ -489,6 +524,12 @@ $block: ".ts-menu"
     color: $c-gray-dark
     cursor: pointer
     transition: .3s
+
+    +media-max-s-minor
+      width: 20px
+      height: 20px
+      font-size: 20px
+      line-height: 20px
 
     #{$block}__item.is-active &
       background-color: $c-gray-extra-light
@@ -528,6 +569,12 @@ $block: ".ts-menu"
     text-align: center
     color: $c-gray-dark
     transition: .3s
+
+    +media-max-s-minor
+      width: 30px
+      height: 20px
+      font-size: 14px
+      line-height: 20px
 
     #{$block}__item.is-active &
       color: $c-gray-extra-dark
