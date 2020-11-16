@@ -57,22 +57,17 @@ $block: ".ts-order"
     width: 100%
 
     &:not(:last-child)
-      padding-bottom: 30px
       margin-bottom: 30px
-      border-bottom: 1px solid $c-gray-light
 
       #{$block}_role_basket &,
       #{$block}_role_editor &
-        padding-bottom: 40px
         margin-bottom: 40px
 
       +media-max-s-minor
-        padding-bottom: 30px
         margin-bottom: 30px
 
         #{$block}_role_basket &,
         #{$block}_role_editor &
-          padding-bottom: 30px
           margin-bottom: 30px
 
 
@@ -587,6 +582,135 @@ $block: ".ts-order"
         background-color: $c-gray-light
 
 
+  // $Order offers
+  &__offers
+    display: block
+    width: 100%
+
+    &:not(:last-child)
+      margin-bottom: 30px
+
+      #{$block}_role_basket &,
+      #{$block}_role_editor &
+        margin-bottom: 40px
+
+      +media-max-s-minor
+        margin-bottom: 30px
+
+        #{$block}_role_basket &,
+        #{$block}_role_editor &
+          margin-bottom: 30px
+
+
+  // $Order offers title
+  &__offers-title
+    display: block
+    font-family: $f-sans
+    font-size: 18px
+    line-height: 1
+    font-weight: 600
+    letter-spacing: 1px
+    color: $c-gray-ultra-dark
+    text-transform: uppercase
+
+    #{$block}_role_basket &,
+    #{$block}_role_editor &
+      font-size: 22px
+
+    +media-max-s-minor
+      font-size: 16px
+      letter-spacing: 0
+
+      #{$block}_role_basket &,
+      #{$block}_role_editor &
+        font-size: 18px
+
+    &:not(:last-child)
+      margin-bottom: 30px
+
+      +media-max-s-minor
+        margin-bottom: 20px
+
+
+  // $Order offers list
+  &__offers-list
+    display: block
+    width: 100%
+
+
+  // $Order offers item
+  &__offers-item
+    display: flex
+    flex-direction: row
+    justify-content: space-between
+    align-items: flex-start
+    width: 100%
+    font-family: $f-sans
+    font-size: 16px
+    line-height: 1
+    font-weight: 600
+    color: $c-gray-ultra-dark
+
+    #{$block}_role_basket &,
+    #{$block}_role_editor &
+      padding-right: 40px
+      padding-left: 120px
+
+    #{$block}_role_details &
+      padding-left: 60px
+
+    +media-max-s-minor
+      font-size: 14px
+
+      #{$block}_role_basket &,
+      #{$block}_role_editor &
+        padding-right: 30px
+        padding-left: 75px
+
+    +media-max-xs
+      #{$block}_role_basket &,
+      #{$block}_role_editor &
+        padding-left: 35px
+
+    &:not(:last-child)
+      margin-bottom: 30px
+
+
+
+  // $Order offers item title
+  &__offers-item-title
+    flex-grow: 1
+    flex-shrink: 1
+    display: block
+    padding-right: 20px
+    font-family: $f-sans
+    font-size: 16px
+    line-height: 1
+    font-weight: 600
+    color: $c-gray-ultra-dark
+    text-align: left
+
+    +media-max-s-minor
+      padding-right: 10px
+      font-size: 14px
+
+
+  // $Order offers-item value
+  &__offers-item-value
+    flex-grow: 0
+    flex-shrink: 0
+    display: block
+    font-family: $f-sans
+    font-size: 16px
+    line-height: 1
+    font-weight: 600
+    color: $c-gray-ultra-dark
+    text-align: right
+
+    +media-max-s-minor
+      font-size: 14px
+
+
   // $Order total
   &__total
     display: flex
@@ -625,12 +749,40 @@ $block: ".ts-order"
 
   // $Order total label
   &__total-label
+    flex-grow: 1
+    flex-shrink: 1
+    display: block
+    padding-right: 20px
     text-align: left
 
 
   // $Order total value
   &__total-value
+    flex-grow: 0
+    flex-shrink: 0
+    display: block
     text-align: right
+
+
+  // $Order divider
+  &__divider
+    display: block
+    width: 100%
+    border-bottom: 1px solid $c-gray-light
+
+    &:not(:last-child)
+      margin-bottom: 30px
+
+      #{$block}_role_basket &,
+      #{$block}_role_editor &
+        margin-bottom: 40px
+
+      +media-max-s-minor
+        margin-bottom: 30px
+
+        #{$block}_role_basket &,
+        #{$block}_role_editor &
+          margin-bottom: 30px
 
 
   // $Order placeholder

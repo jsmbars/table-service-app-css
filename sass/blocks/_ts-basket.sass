@@ -150,6 +150,33 @@ $block: ".ts-basket"
     +media-max-s-major
       font-size: 20px
 
+    &:not(:last-child)
+      margin-bottom: 10px
+
+
+  // $Basket text
+  &__text
+    display: block
+    font-family: $f-sans
+    font-size: 16px
+    line-height: 1
+    font-weight: 400
+    color: $c-gray-extra-dark
+    text-align: center
+
+    &:not(:last-child)
+      margin-bottom: 10px
+
+
+  // $Basket text light
+  &__text-light
+    font-weight: 300
+
+
+  // $Basket text bold
+  &__text-bold
+    font-weight: 600
+
 
   // $Basket actions
   &__actions
