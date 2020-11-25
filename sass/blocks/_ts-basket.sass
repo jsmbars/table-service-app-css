@@ -178,6 +178,18 @@ $block: ".ts-basket"
     font-weight: 600
 
 
+  // $Basket order
+  &__order
+    display: block
+    width: 100%
+
+    &:not(:last-child)
+      margin-bottom: 60px
+
+      +media-max-s-minor
+        margin-bottom: 40px
+
+
   // $Basket actions
   &__actions
     display: flex
