@@ -146,10 +146,6 @@ $block: ".ts-page-content"
       #{$block}_role_details &
         margin-bottom: 40px
 
-      +media-max-s-major
-        #{$block}_role_details &
-          margin-bottom: 20px
-
 
   // $Page content layout group
   &__layout-group
@@ -200,12 +196,13 @@ $block: ".ts-page-content"
   // $Page content group
   &__form,
   &__order,
-  &__menu
+  &__menu,
+  &__payment
     display: block
     width: 100%
 
     &:not(:last-child)
-      margin-bottom: 20px
+      margin-bottom: 40px
 
 
   // $Page header logo

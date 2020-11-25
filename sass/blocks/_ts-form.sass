@@ -16,6 +16,42 @@ $block: ".ts-form"
 #{$block}
   display: block
   width: 100%
+      display: none
+
+
+  // $Form row
+  &__row
+    display: flex
+    flex-direction: row
+    justify-content: flex-start
+    align-items: flex-start
+    width: 100%
+    margin-bottom: 20px
+
+    // $Form row MOD: justify center
+    &_justify_center
+      justify-content: center
+
+    // $Form row MOD: justify end
+    &_justify_end
+      justify-content: flex-end
+
+    // $Form row MOD: justify space
+    &_justify_space
+      justify-content: space-between
+
+    // $Form row MOD: align center
+    &_align_center
+      align-items: center
+
+    // $Form row MOD: align end
+    &_align_end
+      align-items: flex-end
+
+    // $Form row MOD: position last
+    &:last-child,
+    &_position_last
+      margin-bottom: 0
 
 
   // $Form field
@@ -25,8 +61,16 @@ $block: ".ts-form"
     width: 100%
     margin-bottom: 20px
 
-    // $Form area: MOD: position last
-    // $Form group: MOD: position last
+    // $Form field MOD: size half
+    &_size_half
+      flex-grow: 0
+      flex-shrink: 1
+      width: 50%
+
+    &_size_half
+      margin-bottom: 0
+      margin-right: 20px
+
     // $Form field: MOD: position last
     &:last-child,
     &_position_last
