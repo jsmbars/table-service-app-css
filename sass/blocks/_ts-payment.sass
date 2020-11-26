@@ -1,0 +1,156 @@
+@import '../helpers/settings'
+@import '../helpers/mixins'
+
+////////////////////////////////////////
+// $Payment
+////////////////////////////////////////
+
+//////////////////////////////////////// Block variables
+
+
+//////////////////////////////////////// Block mixins and functions
+
+
+//////////////////////////////////////// Block styles
+$block: ".ts-payment"
+
+#{$block}
+  display: block
+  width: 100%
+
+
+  // $Payment cards
+  &__cards
+    display: block
+    width: 100%
+
+
+  // $Payment cards title
+  &__cards-title
+    display: block
+    font-family: $f-sans
+    font-size: 20px
+    line-height: 1
+    font-weight: 400
+    color: $c-gray-ultra-dark
+    text-align: center
+
+    +media-max-s-major
+      font-size: 18px
+
+    &:not(:last-child)
+      margin-bottom: 40px
+
+      +media-max-s-major
+        margin-bottom: 30px
+
+
+  // $Payment cards list
+  &__cards-list
+    display: block
+    width: 100%
+
+    &:not(:last-child)
+      margin-bottom: 40px
+
+      +media-max-s-major
+        margin-bottom: 30px
+
+
+  // $Payment cards actions
+  &__cards-actions
+    display: flex
+    flex-direction: row
+    justify-content: center
+    align-items: center
+    width: 100%
+
+
+  // $Payment cards action
+  &__cards-action
+
+
+  // $Payment card
+  &__card
+    display: flex
+    flex-direction: row
+    justify-content: flex-start
+    align-items: center
+    width: 100%
+    padding: 20px
+    background-color: $c-white
+    border: 1px solid $c-gray-extra-light
+    border-radius: 8px
+    cursor: pointer
+    transition: all .3s
+
+    +media-max-s-major
+      padding: 15px
+
+    +media-max-s-minor
+      padding-left: 10px
+      padding-right: 10px
+
+    &:hover
+      background-color: $c-brand-hyper-light
+
+    &:not(:last-child)
+      margin-bottom: 20px
+
+    // $Payment card STATE: expired
+    &.is-expired
+      border-color: $c-red-medium
+      background-color: $c-red-ultra-light
+      cursor: not-allowed
+
+      &:hover
+        background-color: $c-red-ultra-light
+
+
+  // $Payment card information
+  &__card-info
+    flex-grow: 1
+    flex-shrink: 1
+    display: block
+
+
+  // $Payment card name
+  &__card-name
+    display: block
+    font-family: $f-sans
+    font-size: 16px
+    line-height: 1
+    font-weight: 600
+    color: $c-gray-ultra-dark
+
+
+  // $Payment card expiry
+  &__card-expiry
+    flex-grow: 0
+    flex-shrink: 0
+    display: block
+    font-family: $f-sans
+    font-size: 14px
+    line-height: 1
+    font-weight: 400
+    color: $c-gray-dark
+
+    #{$block}__card.is-expired &
+      color: $c-red-medium
+
+
+  // $Payment card expiry date
+  &__card-expiry-date
+    font-weight: 600
+
+
+  // $Payment placeholder
+  &__placeholder
+    display: block
+    width: 100%
+    font-family: $f-sans
+    font-size: 18px
+    line-height: 1
+    font-weight: 400
+    color: $c-gray-dark
+    text-align: center

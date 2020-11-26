@@ -74,18 +74,31 @@ $block: ".ts-page-header"
     width: 100%
 
 
+  // $Page header info
+  &__info
+    display: block
+    width: 100%
+    text-align: center
+
+    +media-max-xs
+      max-width: 160px
+
+
   // $Page header action
   &__action
-    position: absolute
-    top: 50%
-    display: block
+    display: inline-block
+    white-space: nowrap
+    font-family: $f-sans
+    font-size: 16px
+    line-height: 1
+    color: $c-white
     border: none
     background-color: transparent
     cursor: pointer
-    white-space: nowrap
-    color: $c-white
-    transform: translateY(-50%)
     transition: all .3s
+
+    +media-max-s-major
+      font-size: 14px
 
     &:before,
     &:after
@@ -113,8 +126,11 @@ $block: ".ts-page-header"
 
     // $Page header action MOD: role previous
     &_role_previous
+      position: absolute
+      top: 50%
       left: 0
       text-align: left
+      transform: translateY(-50%)
 
       &:before
         content: '\e911'
@@ -126,11 +142,14 @@ $block: ".ts-page-header"
 
     // $Page header action MOD: role table
     &_role_table
-      right: 0
-      text-align: right
+      font-size: 18px
+
+      +media-max-s-major
+        font-size: 16px
 
       &:after
         content: '\e90d'
+        margin-left: 5px
         font-size: 20px
         line-height: 30px
 
@@ -141,19 +160,13 @@ $block: ".ts-page-header"
   // $Page header action text
   &__action-text
     display: inline-block
-    font-family: $f-sans
-    font-size: 16px
-    line-height: 1
+    font-family: inherit
+    font-size: inherit
+    line-height: inherit
     color: inherit
     vertical-align: middle
     white-space: normal
     transition: .3s
-
-    +media-max-s-major
-      font-size: 14px
-
-    +media-max-xs
-      max-width: 60px
 
 
   // $Page header action text light
@@ -166,61 +179,38 @@ $block: ".ts-page-header"
     font-weight: 600
 
 
-  // $Page header logo
-  &__logo
-    display: block
-    width: 100%
-    text-decoration: none
-
-    +media-max-xs
-      max-width: 160px
-
-    &:focus
-      outline: none
-
-
-  // $Page header logo-text
-  &__logo-text
-    display: block
-    font-family: $f-sans
-    font-size: 30px
-    line-height: 1
-    font-weight: 600
-    color: $c-white
-    text-shadow: 0 1px 2px rgba(0,0,0,.5)
-    text-align: center
-    transition: all .3s
-
-    +media-max-s-major
-      font-size: 20px
-
-
   // $Page header meta
   &__meta
-    position: absolute
-    top: 50%
-    right: 0
-    display: block
+    display: inline-block
     font-family: $f-sans
-    font-size: 16px
-    line-height: 1
+    font-size: 18px
+    line-height: 30px
     font-weight: 400
     color: $c-white
-    text-align: right
-    transform: translateY(-50%)
+    text-align: center
+    vertical-align: middle
 
     +media-max-s-major
-      font-size: 14px
-
-    +media-max-xs
-      max-width: 60px
+      font-size: 16px
 
 
-  // $Page header meta light
-  &__meta-light
+  // $Page header meta text
+  &__meta-text
+    display: inline-block
+    font-family: inherit
+    font-size: inherit
+    line-height: inherit
+    color: inherit
+    vertical-align: middle
+    white-space: normal
+    transition: .3s
+
+
+  // $Page header meta text light
+  &__meta-text-light
     font-weight: 300
 
 
-  // $Page header meta bold
-  &__meta-bold
+  // $Page header meta text bold
+  &__meta-text-bold
     font-weight: 600

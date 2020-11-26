@@ -39,7 +39,7 @@ $block: ".ts-basket"
     left: 0
     display: block
     width: 100%
-    padding: 20px 10px
+    padding: 20px 10px 30px
     background-color: $c-brand
     cursor: pointer
 
@@ -176,6 +176,18 @@ $block: ".ts-basket"
   // $Basket text bold
   &__text-bold
     font-weight: 600
+
+
+  // $Basket order
+  &__order
+    display: block
+    width: 100%
+
+    &:not(:last-child)
+      margin-bottom: 60px
+
+      +media-max-s-minor
+        margin-bottom: 40px
 
 
   // $Basket actions
